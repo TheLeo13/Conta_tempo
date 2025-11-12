@@ -1,9 +1,15 @@
-<!doctype html>
-<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tempo desde 24/09/2025</title>
+  <title>Para você 💖</title>
+
+  <!-- Evita miniatura ou data no preview do WhatsApp -->
+  <meta property="og:title" content="💖">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta name="twitter:card" content="summary">
+
   <style>
     :root {
       --bg1: #fff0f5;
@@ -97,36 +103,3 @@
     @media (min-width:520px){#counter{font-size:72px}}
   </style>
 </head>
-<body>
-  <div class="card">
-    <div class="initials">N ❤ L</div>
-    <div id="counter">0</div>
-    <div class="sub">Esse é o tempo que se passou desde o dia em que comecei a te amar, meu amor.<br>Esse é o primeiro relógio do universo que nunca vai parar, porque eu vou te amar por toda a eternidade. <span class="heart">❤</span></div>
-    <div class="extra" id="extraText"></div>
-  </div>
-
-  <script>
-    const start = new Date(2025, 8, 24, 0, 0, 0, 0); // setembro = mês 8 (0-index)
-
-    const fmt = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
-    const el = document.getElementById('counter');
-    const extra = document.getElementById('extraText');
-
-    function update() {
-      const now = Date.now();
-      const diffMs = now - start.getTime();
-      const diffSec = diffMs / 1000;
-      const millions = diffSec / 1_000_000;
-      el.textContent = diffSec > 0 ? fmt.format(diffSec.toFixed(0)) + ' s' : '0 s';
-      if (diffSec > 0) {
-        extra.textContent = `Já se foram ${fmt.format(millions)} milhões de segundos, e em cada um deles eu te amei.`;
-      } else {
-        extra.textContent = '';
-      }
-      requestAnimationFrame(update);
-    }
-
-    requestAnimationFrame(update);
-  </script>
-</body>
-</html>
